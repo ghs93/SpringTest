@@ -16,8 +16,11 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.ssafy.mvc.dto.Book;
 import com.ssafy.mvc.model.service.BookService;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Controller
 @RequestMapping(value = "/book")
+@Slf4j
 public class BookController {
 	
 	//BookService 객체 주입
@@ -49,7 +52,7 @@ public class BookController {
 //			, @RequestParam("a") int a
 //			, @RequestParam("b") int b
 			) throws SQLException {
-		System.out.println("showBookList() 메소드 호출");
+		log.debug("showBookList() 메소드 호출");
 		
 		//1. 전체 목록 조회 데이터 받아오기
 		List<Book> list = bookService.selectAll();
@@ -60,13 +63,15 @@ public class BookController {
 //		System.out.println("c: " + model.getAttribute("c"));
 		model.addAttribute("list", list);
 		
+		log.debug(bookService.getClass().getName());
+		
 		//2. view 반환
 		return "bookList";
 	}
 	
 	@RequestMapping(value = "/list2")
 	public String showBookList2(RedirectAttributes re) throws SQLException {
-		System.out.println("showBookList() 메소드 호출");
+		log.debug("showBookList()2 메소드 호출");
 		
 		//1. 전체 목록 조회 데이터 받아오기
 		List<Book> list = bookService.selectAll();

@@ -24,8 +24,8 @@ public class BookDaoImpl implements BookDao{
 
 	@Override
 	public List<Book> selectAll() throws SQLException {
-//		String sql = "select isbn, title, author, price from book";
-		String sql = "isbn, title, author, price from book";
+		String sql = "select isbn, title, author, price from book";
+//		String sql = "isbn, title, author, price from book";
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
