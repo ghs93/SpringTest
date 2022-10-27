@@ -27,10 +27,10 @@ public class HomeController {
 		for (ApplicationContext ac : list) {
 			logger.debug("ApplicationContext 정보: {}", ac.toString());
 			
-//			String[] beanNames = ac.getBeanDefinitionNames();
-//			for (int i=0; i<beanNames.length; i++) {
-//				logger.debug("{}번 빈이름: {}", i, beanNames[i]);
-//			}
+			String[] beanNames = ac.getBeanDefinitionNames();
+			for (int i=0; i<beanNames.length; i++) {
+				logger.debug("{}번 빈이름: {}", i, beanNames[i]);
+			}
 		}
 		
 		return "home";

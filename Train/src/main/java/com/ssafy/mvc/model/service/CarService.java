@@ -8,4 +8,5 @@ import com.ssafy.mvc.dto.Car;
 public interface CarService {
 	public void registCar(Car car) throws SQLException;
 	public List<Car> getCarList() throws SQLException;
+	public Car getDetailCar(int number) throws SQLException;
 }

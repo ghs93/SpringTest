@@ -6,4 +6,6 @@ import lombok.Data;
 public class Car {
 	String number, model, brand;
 	int price;
+	
+	FileInfo fileInfo;
 }

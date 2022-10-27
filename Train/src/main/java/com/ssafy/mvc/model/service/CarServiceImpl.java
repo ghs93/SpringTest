@@ -7,21 +7,30 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ssafy.mvc.dto.Car;
-import com.ssafy.mvc.model.dao.CarDao;
+import com.ssafy.mvc.model.mapper.CarMapper;
 
 @Service
 public class CarServiceImpl implements CarService {
 	@Autowired
-	CarDao carDao;
+	CarMapper carMapper;
 
 	@Override
 	public void registCar(Car car) throws SQLException {
-		carDao.registCar(car);
+		carMapper.registCar(car);
+		
+		if(car.getFileInfo() != null)
+			carMapper.insertFileInfo(car);
+		
 	}
 
 	@Override
 	public List<Car> getCarList() throws SQLException {
-		return carDao.getCarList();
+		return carMapper.selectCarList();
+	}
+
+	@Override
+	public Car getDetailCar(int number) throws SQLException {
+		return carMapper.selectDetail(number);
 	}
 
 }
