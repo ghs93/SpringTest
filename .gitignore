@@ -13,6 +13,11 @@ local.properties
 .settings/
 .loadpath
 .recommenders
+.target/
+/Servers
+
+# ignore properties file
+config.properties
 
 # External tool builders
 .externalToolBuilders/
